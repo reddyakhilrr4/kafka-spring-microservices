@@ -1,73 +1,95 @@
-# kafka-microservices
-A simple Spring Boot and Apache Kafka microservices application with four modules: Order services, Email Services, Stock Services and one Base Domain.
+Kafka Microservices Project
+This project demonstrates a Spring Boot and Apache Kafka microservices architecture with the following modules:
 
-## Requirements
+Order Service
+Email Service
+Stock Service
+Base Domain (common/shared components)
+Requirements
+To run the project locally, ensure you have the following installed:
 
-- [Java 17](https://adoptium.net/)
-- [Maven](https://maven.apache.org/)
-- [Gradle](https://gradle.org/)
+Java 17
+Maven
+Gradle
+Architecture Overview
+The project is designed using a multi-layer architecture, which is divided into the following layers:
 
-## Architecture Layers
+1. Presentation Layer
+This is the topmost layer of the architecture, responsible for handling communication with clients:
 
-#### PRESENTATION LAYER
+Authentication: Verifies the identity of the user.
+JSON Data Conversion: Converts incoming JSON data into Java objects and vice versa.
+Request Handling: Manages incoming HTTP requests.
+Authentication Transfer: Transfers authentication data to the business layer for further validation.
+2. Business Layer
+This layer contains the core functionality and logic of the application:
 
-This layer is at the top of the architecture. This tier is responsible for:
+Validation: Ensures that the data is correct and meets the necessary requirements.
+Authorization: Manages access control to ensure that only authorized users can perform certain actions.
+Business Logic: Implements the core business rules and operations of the application.
+3. Persistence Layer
+This layer is responsible for managing interactions with the data storage system:
 
-✔️ Performing authentication.
+Storage Logic: Contains the logic for data storage and retrieval.
+Data Fetching: Translates data into objects and stores/retrieves it from the database.
+4. Database Layer
+This layer represents the actual database and is responsible for:
 
-✔️ Converting JSON data into an object (and vice versa).
+Database Operations: Performs CRUD (Create, Read, Update, Delete) operations on the database.
+Software Structure
+The project is divided into multiple modules, including the Order Service, Email Service, Stock Service, and Base Domain that shares common logic across services. The services communicate through Apache Kafka.
 
-✔️ Handling HTTP requests.
 
-✔️ Transfering authentication to the business layer.
+Above: Example architecture diagram for reference.
 
-#### BUSINESS LAYER
+Getting Started
+Follow the steps below to set up and run the application locally.
 
-The business layer is responsible for:
+Step 1: Clone the Repository
+Clone the repository to your local machine:
 
-✔️ Performing validation.
+bash
+Copy
+Edit
+git clone https://github.com/your-username/kafka-microservices.git
+cd kafka-microservices
+Step 2: Build the Project
+Build the project using Maven:
 
-✔️ Performing authorization.
-
-✔️ Handling the business logic and rules.
-
-#### PERSISTENCE LAYER
-
-This layer is responsible for:
-
-✔️ Containing storage logic.
-
-✔️ Fetching objects and translating them into database rows (and vice versa).
-
-#### DATABASE LAYER
-
-This layer is simply the actual database that is responsible for:
-
-✔️ Performing database operations (mainly CRUD operations).
-
-## Software structure
-
-![image](https://github.com/AthirsonSilva/blog-api/assets/84593887/046588ab-6449-43f3-b68b-ed5c580146d9)
-
-## Getting Started
-
-1. Clone the repository
-2. Navigate to the project directory
-3. Build the project using Maven:
-
-```
+bash
+Copy
+Edit
 ./mvnw clean install
-```
+Step 3: Run the Application
+To run the project locally using the Maven wrapper:
 
-4. Run the project using Maven wrapper:
-
-```
+bash
+Copy
+Edit
 ./mvnw spring-boot:run
-```
+This will start the application, which will be available at:
 
-5. The application will start on http://localhost:8080
+arduino
+Copy
+Edit
+http://localhost:8080
+Usage
+Database Configuration
+Before running the application, make sure to configure the database connection. Set the required connection variables in the application.properties or application.yml file.
 
-## Usage
-
-- You will also need the database installed on your machine and set the connection vars on the application.properties or application.yml
-# kafka-spring-microservices
+properties
+Copy
+Edit
+# Example Database Connection Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/your-database
+spring.datasource.username=your-username
+spring.datasource.password=your-password
+Additional Notes
+Make sure Apache Kafka is installed and running on your local machine.
+Adjust the Kafka configurations in the application.properties or application.yml as needed.
+properties
+Copy
+Edit
+# Example Kafka Configuration
+spring.kafka.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=my-group
