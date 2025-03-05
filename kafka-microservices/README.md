@@ -66,6 +66,43 @@ Follow the steps below to set up and run the application locally.
 
 Clone the repository to your local machine:
 
-```bash
-git clone https://github.com/your-username/kafka-microservices.git
+\git clone https://github.com/your-username/kafka-microservices.git
 cd kafka-microservices
+
+Step 2: Build the Project
+Build the project using Maven:
+
+./mvnw clean install
+
+
+Step 3: Run the Application
+To run the project locally using the Maven wrapper:
+
+./mvnw spring-boot:run
+This will start the application, which will be available at:
+
+http://localhost:8080
+
+
+# Database Configuration
+Before running the application, configure the database connection. Set the required connection variables in the application.properties or application.yml file.
+
+# Example Database Connection Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/your-database
+
+spring.datasource.username=your-username
+
+spring.datasource.password=your-password
+
+
+# Additional Notes
+
+Make sure Apache Kafka is installed and running on your local machine.
+Adjust the Kafka configurations in the application.properties or application.yml as needed.
+
+
+# Example Kafka Configuration
+
+spring.kafka.bootstrap-servers=localhost:9092
+
+spring.kafka.consumer.group-id=my-group
