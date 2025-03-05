@@ -7,7 +7,6 @@ This project demonstrates a **Spring Boot** and **Apache Kafka** microservices a
 - **Stock Service**
 - **Base Domain** (common/shared components)
 
----
 
 ## **Requirements**
 
@@ -17,7 +16,7 @@ To run the project locally, ensure you have the following installed:
 - **Maven**  
 - **Gradle**  
 
----
+
 
 ## **Architecture Overview**
 
@@ -49,7 +48,6 @@ This layer represents the actual database and is responsible for:
 
 - **Database Operations:** Performs **CRUD (Create, Read, Update, Delete)** operations on the database.
 
----
 
 ## **Software Structure**
 
@@ -58,7 +56,7 @@ The project is divided into multiple modules, including the **Order Service**, *
 ![Architecture Diagram](image_link)  
 *Above: Example architecture diagram for reference.*
 
----
+
 
 ## **Getting Started**
 
